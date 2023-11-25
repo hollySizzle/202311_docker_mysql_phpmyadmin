@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  db:
+    ports:
+      - "{IP}:3306:3306"
+
+  phpmyadmin:
+    environment:
+      VIRTUAL_HOST: ${VIRTUAL_HOST}
+      LETSENCRYPT_HOST: ${LETSENCRYPT_HOST}
+    ports:
+      # - "3001:80"
+      - "{IP}:3100:80"
+
+networks:
+  default:
+    external:
+      name: shared
